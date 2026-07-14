@@ -26,7 +26,7 @@ framework.
 
 The central computational chain is
 
-$$
+```math
 \text{structural state}
 \longrightarrow
 \text{constitutive response}
@@ -36,7 +36,7 @@ $$
 \text{remodeling stimulus}
 \longrightarrow
 \text{updated structural state}.
-$$
+```
 
 Version 1.0 unifies homogeneous material-point models, spatial fields,
 synthetic polarimetry-like reconstruction, finite-element equilibrium,
@@ -83,7 +83,7 @@ and the right Cauchy–Green tensor
 For a two-dimensional material, the isotropic and fiber invariants are
 
 ```math
-I_1 = \operatorname{tr}\mathbf C,
+I_1 = \mathrm{tr}\,\mathbf C,
 \qquad
 I_{4m} = \mathbf a_0^{(m)}\cdot\mathbf C\mathbf a_0^{(m)},
 ```
@@ -227,7 +227,7 @@ and an explicit normalized retardance proxy
 ```math
 \widehat R
 =
-\operatorname{clip}
+\mathrm{clip}
 \left(
 \frac{R-R_{\min}}{R_{\max}-R_{\min}},0,1
 \right).
@@ -268,7 +268,7 @@ The two-dimensional solver uses four-node bilinear quadrilateral elements in a
 total-Lagrangian formulation. Mechanical equilibrium is
 
 ```math
-\operatorname{Div}_{\mathbf X}\mathbf P=\mathbf0,
+\mathrm{Div}_{\mathbf X}\mathbf P=\mathbf0,
 ```
 
 with weak form
@@ -672,4 +672,4 @@ I am also profoundly grateful to the broader research community whose foundation
 - **Jay D. Humphrey** – for fundamental contributions to cardiovascular solid mechanics and the constrained mixture theory of growth and remodelling.
 - **K. R. Rajagopal** – for the constrained mixture model framework for growth and remodelling of soft tissues.
 
-Their collective work has provided the theoretical and computational bedrock upon which this framework is built.
+Their works has provided the theoretical and computational bedrock upon which this framework is built.
