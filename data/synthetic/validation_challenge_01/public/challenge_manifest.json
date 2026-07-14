@@ -1,0 +1,28 @@
+{
+  "challenge_id": "ASTR-SYNTHETIC-CHALLENGE-01",
+  "data_origin": "fully synthetic",
+  "external_datasets_used": "none",
+  "random_seed": 202609,
+  "relative_noise": 0.02,
+  "absolute_noise": 0.004,
+  "training_protocol_count": 4,
+  "test_protocol_count": 4,
+  "license": "MIT for generator and generated benchmark files",
+  "repository": "https://github.com/Data-Driven-Biomedicine-Lab/Anisotropic-Soft-Tissue-Remodeling",
+  "author": "Karina Urazova",
+  "version": "0.9.0",
+  "training_protocols": [
+    "train_uniaxial_x",
+    "train_uniaxial_y",
+    "train_simple_shear",
+    "train_dilation"
+  ],
+  "test_protocols": [
+    "test_off_axis_extension",
+    "test_combined_extension_shear",
+    "test_axial_compression",
+    "test_transverse_shear"
+  ],
+  "test_targets_public": false,
+  "scientific_status": "synthetic computational validation; not experimental validation"
+}

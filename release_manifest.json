@@ -1,0 +1,35 @@
+{
+  "project": "Anisotropic Soft Tissue Remodeling",
+  "version": "1.0.0",
+  "data_origin": "fully synthetic",
+  "files": {
+    "data/synthetic/polarimetry_maps.npz": {
+      "sha256": "deb77d991359c143ff871cceb82ba1a1b5bf09ddf9517791edbc1f9f3e41ebf1",
+      "size_bytes": 250412
+    },
+    "data/synthetic/validation_challenge_01/public/challenge_manifest.json": {
+      "sha256": "eb9cf1104ac952b6ca74b28009ca1d5d0b515d81ed9254e26962a9efa0b79514",
+      "size_bytes": 906
+    },
+    "data/synthetic/validation_challenge_01/public/training_observations.csv": {
+      "sha256": "8971e7521dc84c49545c34c9f88c5f360c250533591ea755114062e1ac647c48",
+      "size_bytes": 4741
+    },
+    "data/synthetic/validation_challenge_01/public/test_inputs.csv": {
+      "sha256": "9a9afced6863e1d57aad8b4a912230a51c243bf21e92e81fe2e390d7aebe3629",
+      "size_bytes": 4077
+    },
+    "data/synthetic/validation_challenge_01/reference/hidden_test_targets.csv": {
+      "sha256": "019d693da47d34bc6b46bfdb8ec2ff917302b9673d817b63e72d16fde34a4536",
+      "size_bytes": 3571
+    },
+    "results/data/synthetic_validation_metrics.csv": {
+      "sha256": "a45587304c4c1f9b48d615173e0df159c538f60642370da2d7934e298ae36705",
+      "size_bytes": 903
+    },
+    "results/data/synthetic_validation_parameter_estimates.csv": {
+      "sha256": "61d5eb7e214e8ec8ffcdd40f8ee51be51fad8c2109bb613f0765c0d631d55b42",
+      "size_bytes": 611
+    }
+  }
+}

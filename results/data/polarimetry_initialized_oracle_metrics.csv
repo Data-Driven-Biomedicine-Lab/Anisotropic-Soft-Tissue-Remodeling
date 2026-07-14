@@ -1,0 +1,7 @@
+metric,value
+initial_mean_angle_error_deg,2.38269816644
+final_mean_angle_error_deg,0.311729493819
+initial_beta_rmse,0.0191485317806
+final_beta_rmse,0.00316523101441
+final_mean_sigma_xx_difference,-0.00832423965235
+final_mean_beta_difference,-0.000592863042346

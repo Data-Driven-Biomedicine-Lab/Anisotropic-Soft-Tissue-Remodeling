@@ -1,0 +1,24 @@
+cff-version: 1.2.0
+title: "Anisotropic Soft Tissue Remodeling"
+message: "If you use this software, please cite it using the metadata in this file."
+type: software
+authors:
+  - family-names: "Urazova"
+    given-names: "Karina"
+version: 1.0.0
+date-released: 2026-07-14
+license: MIT
+repository-code: "https://github.com/Data-Driven-Biomedicine-Lab/Anisotropic-Soft-Tissue-Remodeling"
+url: "https://github.com/Data-Driven-Biomedicine-Lab/Anisotropic-Soft-Tissue-Remodeling"
+abstract: >-
+  A reproducible Python framework for finite-strain anisotropic soft-tissue
+  mechanics, evolution of fiber orientation and structural order, synthetic
+  polarimetry-like reconstruction, finite-element equilibrium, parameter
+  identification, and blind synthetic validation.
+keywords:
+  - soft-tissue biomechanics
+  - anisotropic hyperelasticity
+  - remodeling
+  - finite elements
+  - fiber architecture
+  - synthetic validation

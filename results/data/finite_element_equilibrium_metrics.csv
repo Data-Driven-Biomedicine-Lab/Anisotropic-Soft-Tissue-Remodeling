@@ -1,0 +1,12 @@
+metric,value
+free_dof_residual_norm,3.871574174186404e-07
+minimum_jacobian,1.0038558680695713
+maximum_jacobian,1.0055395693980778
+right_reaction_x,1.3432737874731
+reaction_imbalance_x,-2.0384703414144667e-07
+equilibrium_energy,0.08233971057232345
+affine_energy,0.08636044756855504
+relative_energy_reduction,0.04655762110357099
+heterogeneous_sigma_xx_std,0.04219356908962041
+uniform_right_reaction_x,1.2843607406739939
+uniform_sigma_xx_std,0.005095477691161342

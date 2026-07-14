@@ -1,0 +1,16 @@
+{
+  "version": "1.0.0",
+  "relative_piola_error": 6.198058809110851e-11,
+  "homogeneous_final_angle_deg": 4.254644073810613,
+  "homogeneous_final_structural_order": 0.6875430658234044,
+  "reconstruction_mean_angle_error_deg": 1.5625688608622357,
+  "reconstruction_structural_order_rmse": 0.013126120801888937,
+  "finite_element_residual": 2.884727677227375e-07,
+  "finite_element_minimum_jacobian": 1.0011357708009343,
+  "held_out_rmse": 0.0715032107311012,
+  "held_out_normalized_rmse": 0.016789816783341054,
+  "held_out_r_squared": 0.993655416140022,
+  "pytest_return_code": 0,
+  "ruff_return_code": 0,
+  "compileall_return_code": 0
+}

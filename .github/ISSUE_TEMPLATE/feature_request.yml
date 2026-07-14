@@ -1,0 +1,23 @@
+name: Scientific or software enhancement
+description: Propose an extension with a clear verification plan
+title: "[Enhancement]: "
+labels: [enhancement]
+body:
+  - type: textarea
+    attributes:
+      label: Proposed capability
+      description: Describe the scientific or software need.
+    validations:
+      required: true
+  - type: textarea
+    attributes:
+      label: Mathematical or computational formulation
+      description: State equations, assumptions, inputs, and outputs.
+    validations:
+      required: true
+  - type: textarea
+    attributes:
+      label: Verification strategy
+      description: Explain limiting cases, numerical checks, and tests.
+    validations:
+      required: true

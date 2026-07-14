@@ -1,0 +1,16 @@
+include README.md
+include LICENSE
+include CITATION.cff
+include CHANGELOG.md
+include CONTRIBUTING.md
+include SECURITY.md
+include Makefile
+include release_manifest.json
+recursive-include docs *.md *.png
+recursive-include examples *.py
+recursive-include notebooks *.ipynb
+recursive-include data *.md *.json *.csv *.npz
+recursive-include results *.csv *.json *.npz *.png
+recursive-include scripts *.py
+recursive-include tests *.py
+recursive-include .github *.yml *.yaml

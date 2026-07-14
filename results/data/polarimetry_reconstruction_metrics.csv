@@ -1,0 +1,6 @@
+metric,value
+mean_absolute_angle_error_deg,2.3826981664396283
+angle_error_95th_percentile_deg,6.067743117930898
+retardance_order_rmse,0.018930867869016137
+combined_order_rmse,0.01914853178063512
+combined_order_mae,0.015332273764906652

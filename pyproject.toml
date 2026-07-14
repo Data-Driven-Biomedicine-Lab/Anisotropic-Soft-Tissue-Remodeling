@@ -1,0 +1,68 @@
+[build-system]
+requires = ["setuptools>=69", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "anisotropic-soft-tissue-remodeling"
+version = "1.0.0"
+description = "A reproducible finite-strain framework for anisotropic soft-tissue structure, mechanics, and remodeling."
+readme = "README.md"
+requires-python = ">=3.10"
+license = "MIT"
+authors = [
+  {name = "Karina Urazova"}
+]
+keywords = [
+  "biomechanics",
+  "soft tissue",
+  "anisotropy",
+  "remodeling",
+  "finite elements",
+  "fiber orientation",
+  "synthetic validation",
+]
+classifiers = [
+  "Development Status :: 5 - Production/Stable",
+  "Intended Audience :: Science/Research",
+  "Programming Language :: Python :: 3",
+  "Programming Language :: Python :: 3.10",
+  "Programming Language :: Python :: 3.11",
+  "Programming Language :: Python :: 3.12",
+  "Topic :: Scientific/Engineering",
+]
+dependencies = [
+  "numpy>=1.24",
+  "matplotlib>=3.7",
+  "scipy>=1.10",
+]
+
+[project.urls]
+Repository = "https://github.com/Data-Driven-Biomedicine-Lab/Anisotropic-Soft-Tissue-Remodeling"
+Issues = "https://github.com/Data-Driven-Biomedicine-Lab/Anisotropic-Soft-Tissue-Remodeling/issues"
+Changelog = "https://github.com/Data-Driven-Biomedicine-Lab/Anisotropic-Soft-Tissue-Remodeling/blob/main/CHANGELOG.md"
+
+[project.optional-dependencies]
+dev = [
+  "pytest>=8.0",
+  "ruff>=0.6",
+  "build>=1.2",
+]
+notebook = [
+  "jupyterlab>=4.0",
+  "ipykernel>=6.0",
+  "nbconvert>=7.0",
+]
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "-q"
+
+[tool.ruff]
+line-length = 100
+target-version = "py310"
+
+[tool.ruff.lint.per-file-ignores]
+"notebooks/*.ipynb" = ["E402"]
