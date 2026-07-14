@@ -28,7 +28,7 @@ jobs:
           pip install -e .
           pip install pytest ruff
       
-      - name: Create ruff config (ignore hidden files)
+      - name: Create ruff config (ignore all hidden files)
         run: echo 'exclude = ["**/.*"]' > ruff.toml
       
       - name: Run pytest
@@ -38,4 +38,4 @@ jobs:
         run: python -m ruff check . --config ruff.toml --exit-zero
       
       - name: Run compileall (skip hidden .py)
-        run: python -m compileall -q -x '[\\/]\.' src examples
+        run: python -m compileall -q -x r'[\\/]\..*\.py$' src examples
