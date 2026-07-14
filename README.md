@@ -68,54 +68,54 @@ specific biological tissue. See [`docs/synthetic_data_policy.md`](docs/synthetic
 
 The deformation map is described by the deformation gradient
 
-$$
+```math
 \mathbf F = \frac{\partial \mathbf x}{\partial \mathbf X},
 \qquad
 J = \det \mathbf F > 0,
-$$
+```
 
 and the right Cauchy–Green tensor
 
-$$
+```math
 \mathbf C = \mathbf F^{\mathsf T}\mathbf F.
-$$
+```
 
 For a two-dimensional material, the isotropic and fiber invariants are
 
-$$
+```math
 I_1 = \operatorname{tr}\mathbf C,
 \qquad
 I_{4m} = \mathbf a_0^{(m)}\cdot\mathbf C\mathbf a_0^{(m)},
-$$
+```
 
-where $\mathbf a_0^{(m)}$ is the reference direction of fiber family $m$.
+where $\(\mathbf a_0^{(m)}\)$ is the reference direction of fiber family m.
 Directions are nematic:
 
-$$
+```math
 \mathbf a_0^{(m)} \equiv -\mathbf a_0^{(m)}.
-$$
+```
 
 ### 3.2 Matrix energy
 
 The compressible neo-Hookean matrix contribution is
 
-$$
+```math
 \psi_{\mathrm m}
 =
 \frac{\mu}{2}
 \left(I_1-2-2\ln J\right)
 +
 \frac{\kappa}{2}(\ln J)^2,
-$$
+```
 
-where $\mu>0$ controls the matrix shear response and $\kappa>0$ penalizes
+where $\(\mu>0\)$ controls the matrix shear response and $\(\kappa>0\)$ penalizes
 volume change.
 
 ### 3.3 Tension-only fiber energy
 
-For $M$ discrete fiber families, the total strain-energy density is
+For M discrete fiber families, the total strain-energy density is
 
-$$
+```math
 \psi
 =
 \psi_{\mathrm m}
@@ -128,50 +128,50 @@ $$
  k_{2m}\langle I_{4m}-1\rangle_+^2
 \right)-1
 \right],
-$$
+```
 
 with normalized mixture weights
 
-$$
+```math
  w_m\ge 0,
 \qquad
 \sum_{m=1}^{M}w_m=1,
-$$
+```
 
 and structural-order variables
 
-$$
+```math
 0\le\beta_m\le1.
-$$
+```
 
-The positive-part operator $\langle x\rangle_+=\max(x,0)$ suppresses the
+The positive-part operator $\(\langle x\rangle_+=\max(x,0)\)$ suppresses the
 fiber contribution in compression.
 
 ### 3.4 Stress measures
 
 The first Piola–Kirchhoff stress is evaluated analytically:
 
-$$
+```math
 \mathbf P = \frac{\partial\psi}{\partial\mathbf F}.
-$$
+```
 
 The Cauchy stress is
 
-$$
+```math
 \boldsymbol\sigma
 =
 \frac{1}{J}\mathbf P\mathbf F^{\mathsf T}.
-$$
+```
 
-Unit tests compare the analytical $\mathbf P$ against central finite
+Unit tests compare the analytical $\(\mathbf P\)$ against central finite
 differences of the energy. In the multi-family benchmark, the relative
-Frobenius error is of order $10^{-10}$.
+Frobenius error is of order $\(10^{-10}\)$.
 
 ### 3.5 Mechanical remodeling stimulus
 
 Directional loading anisotropy is measured from the principal stretches:
 
-$$
+```math
 S
 =
 \left|
@@ -179,30 +179,30 @@ S
 -
 \ln\lambda_{\min}
 \right|.
-$$
+```
 
-This choice satisfies $S=0$ under isotropic stretch and therefore avoids
+This choice satisfies $\(S=0\)$ under isotropic stretch and therefore avoids
 creating an artificial preferred direction in a degenerate principal-stretch
 state.
 
 The equilibrium structural order is represented by a bounded Hill law:
 
-$$
+```math
 \beta_{\mathrm{eq}}(S)
 =
 \beta_{\min}
 +
 (\beta_{\max}-\beta_{\min})
 \frac{S^n}{S_{1/2}^n+S^n}.
-$$
+```
 
 The kinetic equation is
 
-$$
+```math
 \dot\beta
 =
  k_\beta\left(\beta_{\mathrm{eq}}-\beta\right).
-$$
+```
 
 Fiber directions relax toward the maximum principal-stretch direction in
 nematic angle space. The implementation uses bounded exponential updates,
@@ -213,51 +213,51 @@ which prevents overshoot for positive time steps.
 Synthetic azimuth and retardance-like fields are converted into mechanical
 state variables through
 
-$$
+```math
 \mathbf a_0(x,y)
 =
 \begin{bmatrix}
 \cos\alpha(x,y)\\
 \sin\alpha(x,y)
 \end{bmatrix},
-$$
+```
 
 and an explicit normalized retardance proxy
 
-$$
+```math
 \widehat R
 =
 \operatorname{clip}
 \left(
 \frac{R-R_{\min}}{R_{\max}-R_{\min}},0,1
 \right).
-$$
+```
 
 A calibrated order proxy is
 
-$$
+```math
 \beta_R
 =
 \beta_{\min}
 +
 (\beta_{\max}-\beta_{\min})\widehat R^{\,p}.
-$$
+```
 
 Local nematic coherence is computed in doubled-angle space,
 
-$$
+```math
 q
 =
 \frac{\langle w e^{2i\alpha}\rangle}{\langle w\rangle},
 \qquad
 c=|q|,
-$$
+```
 
 and the final structural-order variable is
 
-$$
+```math
 \beta=\beta_Rc.
-$$
+```
 
 This mapping is deliberately described as a **synthetic structural proxy**; it
 is not presented as an absolute physical calibration.
@@ -267,17 +267,17 @@ is not presented as an absolute physical calibration.
 The two-dimensional solver uses four-node bilinear quadrilateral elements in a
 total-Lagrangian formulation. Mechanical equilibrium is
 
-$$
+```math
 \operatorname{Div}_{\mathbf X}\mathbf P=\mathbf0,
-$$
+```
 
 with weak form
 
-$$
+```math
 \int_{\Omega_0}
 \mathbf P:\nabla_{\mathbf X}\delta\mathbf u\,\mathrm dV
 =0.
-$$
+```
 
 Spatially varying fiber directions and structural-order parameters are stored
 at the element level. The nonlinear displacement problem is solved by energy
@@ -288,32 +288,32 @@ minimization with analytical internal forces and load stepping.
 A continuous planar orientation distribution can be approximated by discrete
 quadrature directions. The implemented nematic von Mises density is
 
-$$
+```math
 \rho(\theta)
 =
 \frac{
 \exp[\chi\cos 2(\theta-\bar\theta)]
 }{\pi I_0(\chi)},
 \qquad 0\le\theta<\pi,
-$$
+```
 
-with theoretical coherence $I_1(\chi)/I_0(\chi)$.
+with theoretical coherence $\(I_1(\chi)/I_0(\chi)\)$.
 
 Scalar element fields are regularized on the adjacency graph by solving
 
-$$
+```math
 (\mathbf I+\ell\mathbf L)\mathbf x=\mathbf y,
-$$
+```
 
-where $\mathbf L$ is the graph Laplacian. Fiber directions are regularized in
-$[\cos(2\alpha),\sin(2\alpha)]$ space, preserving head–tail symmetry.
+where $\(\mathbf L\)$ is the graph Laplacian. Fiber directions are regularized in
+$\([\cos(2\alpha),\sin(2\alpha)]\)$ space, preserving head–tail symmetry.
 
 ### 3.9 Parameter identification
 
 Positive constitutive parameters are optimized in logarithmic coordinates by
 minimizing the weighted least-squares objective
 
-$$
+```math
 \Phi(\mathbf p)
 =
 \sum_{i=1}^{N}
@@ -324,14 +324,14 @@ $$
 \sigma_i^{\mathrm{obs}}
 }{s_i}
 \right]^2.
-$$
+```
 
 The inverse module provides local finite-difference sensitivities, singular
 values, condition numbers, covariance and correlation estimates, and a
 parametric bootstrap.
 
 A key identifiability result is explicit: under strictly isochoric loading,
-$J=1$ and $\ln J=0$, so the volumetric parameter $\kappa$ has zero sensitivity.
+$\(J=1\)$ and $\(\ln J=0\)$, so the volumetric parameter \(\kappa\) has zero sensitivity.
 A non-isochoric protocol is required to identify it.
 
 ## 4. Computational progression
@@ -346,7 +346,7 @@ The ten notebooks form a cumulative research workflow:
 |---|---|---|
 | `01_homogeneous_remodeling.ipynb` | Can a single material point remodel under finite strain? | Verified stress and bounded evolution |
 | `02_spatial_fiber_field.ipynb` | How do heterogeneous fields evolve under compatible deformation? | Maps of orientation, order, energy, and stress |
-| `03_polarimetry_to_structure.ipynb` | How can synthetic azimuth and retardance-like maps initialize mechanics? | $\mathbf a_0$, $\beta$, and structural tensors |
+| `03_polarimetry_to_structure.ipynb` | How can synthetic azimuth and retardance-like maps initialize mechanics? | \(\mathbf a_0\), \(\beta\), and structural tensors |
 | `04_polarimetry_initialized_remodeling.ipynb` | How do reconstruction errors propagate through remodeling? | Oracle comparison against latent synthetic fields |
 | `05_finite_element_equilibrium.ipynb` | How does spatial structure affect a mechanically coupled specimen? | Q4 equilibrium and reaction forces |
 | `06_equilibrium_remodeling_coupling.ipynb` | Can equilibrium and structural evolution form a closed loop? | Time-dependent FE remodeling |
@@ -365,7 +365,7 @@ The ten notebooks form a cumulative research workflow:
 
 The reference material point starts with an oblique fiber direction and low
 structural order. Under area-preserving axial extension, the fiber rotates
-toward the tensile axis while $\beta$ relaxes toward its stimulus-dependent
+toward the tensile axis while $\(\beta\)$ relaxes toward its stimulus-dependent
 equilibrium value.
 
 ### 5.2 Synthetic structural reconstruction
@@ -406,7 +406,7 @@ mesh-scale stress fluctuations while retaining the principal mechanical trend.
 
 The model is calibrated on four public synthetic training protocols and
 predicts four disjoint hidden test protocols. For the reference challenge, the
-held-out normalized RMSE is approximately **1.68%** and $R^2$ is approximately
+held-out normalized RMSE is approximately **1.68%** and \(R^2\) is approximately
 **0.994**. These values quantify performance only inside the controlled
 synthetic data-generating system.
 
@@ -609,14 +609,14 @@ Detailed instructions are available in
 The automated suite includes checks for:
 
 - agreement between analytical stress and finite-difference energy gradients;
-- invariance under $\mathbf a_0\rightarrow-\mathbf a_0$;
+- invariance under \(\mathbf a_0\rightarrow-\mathbf a_0\);
 - positive deformation Jacobians;
 - symmetry of the Cauchy stress;
 - force balance and free-degree residuals in finite elements;
 - bounded structural-order evolution;
 - exact preservation under zero remodeling rates;
 - deterministic random-seed behavior;
-- rank deficiency of isochoric identification for $\kappa$;
+- rank deficiency of isochoric identification for \(\kappa\);
 - full-rank recovery after adding dilation;
 - blind test prediction on disjoint synthetic protocols;
 - release version, notebook completeness, and benchmark checksums.
@@ -658,3 +658,18 @@ in [`SECURITY.md`](SECURITY.md).
 
 The source code, synthetic generators, and generated benchmark files are
 released under the MIT License. See [`LICENSE`](LICENSE).
+
+## 15. Acknowledgments
+
+I would like to express my deepest gratitude to **V. Yu. Salamatova** – not only for her outstanding scientific contributions to computational mechanics and nonlinear elasticity of soft biological tissues, but also for the personal mentorship that shaped my journey. It was she who first introduced me to the fascinating world of soft tissue mechanics during my bachelor's thesis, patiently guided my early research steps, and instilled in me the rigour and curiosity that underpin this work. Her support, both as a supervisor and as a role model, has been invaluable.
+
+I am also profoundly grateful to the broader research community whose foundational theories and computational frameworks have inspired and enabled this repository:
+
+- **Gerhard A. Holzapfel** – for pioneering constitutive modelling of soft biological tissues and organs.
+- **Larry A. Taber** – for developing continuum theories of growth and remodelling in mechanobiology.
+- **Yoram Lanir** – for mechanistic micro-structural theories of soft tissue constitutive behaviour and remodelling.
+- **Ellen Kuhl** – for computational models of growth and remodelling and for advancing the understanding of tensional homeostasis.
+- **Jay D. Humphrey** – for fundamental contributions to cardiovascular solid mechanics and the constrained mixture theory of growth and remodelling.
+- **K. R. Rajagopal** – for the constrained mixture model framework for growth and remodelling of soft tissues.
+
+Their collective work has provided the theoretical and computational bedrock upon which this framework is built.
